@@ -1,9 +1,12 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{ element.name }}</div>
   <div class="panel-body">
-    <p>
+    <!-- The ng-content below causes the content of the parent, in this case, the app.component html
+    for the <app-server-element> tag in the app.component.html to be projected into the <ng-content> tags.-->
+    <ng-content></ng-content>
+    <!-- <p>
       <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
       <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-    </p>
+    </p> -->
   </div>
 </div>
