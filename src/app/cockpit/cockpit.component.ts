@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -9,23 +9,30 @@ export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   //newServerName = '';
-  newServerContent = ''
+  //newServerContent = ''
+  // The @ViewChild() gets access to the DOM which allows us to access
+  // the element serverContentInput (#serverContentInput) so that we
+  // can read the value of the nativeElement.  It is recommended to do
+  // read only on these native element values.
+  @ViewChild('serverContentInput') serverContentInput: ElementRef; // The @ViewChild gets access to the DOM.
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onAddServer(nameInput: HTMLInputElement) {
+    console.log(this.serverContentInput);
     this.serverCreated.emit({
       serverName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 
   onAddBlueprint(nameInput: HTMLInputElement) {
     this.blueprintCreated.emit({
       serverName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 
