@@ -9,7 +9,7 @@ export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   //newServerName = '';
-  //newServerContent = ''
+  //newServerContent = '';
   // The @ViewChild() gets access to the DOM which allows us to access
   // the element serverContentInput (#serverContentInput) so that we
   // can read the value of the nativeElement.  It is recommended to do
