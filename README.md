@@ -1,4 +1,5 @@
-# MyFirstApp
+# angular-cmp-databinding app.
+This app demonstrates how component data binding works in angular.  Version is Angular 9.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
